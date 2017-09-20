@@ -1,6 +1,6 @@
 ## Collec lagou.com data
 
-### 项目文件说明
+### 1.项目文件说明
 #### Crawl.py
 - 调度器，使用多线程分别执行请求和解析响应的任务，并存到本地或者写入数据库。
 - 需要提供目标关键词和城市。
@@ -21,15 +21,15 @@
 #### json_To_Csv_File.py
 - 一键将本项目中的json文件转为csv文件。
 
-### 代码实现流程
+### 2.代码实现流程
 ![image](https://github.com/nickliqian/lagou_job/blob/master/lagou_spider.png)
 
-### 如何使用
+### 3.如何使用
 打开Crawl.py
 
-### 下一个版本
+### 4.下一个版本
 
-#### 1.增加manage.py文件
+#### I.增加manage.py文件
 计划增加manage.py文件，并把项目修改为类似API的形式。只需输入关键词，城市列表和线程数量，即可输出一个包含这些城市的职位信息的json文件。
 > **示例-->**  
 >  **input:**  
@@ -39,7 +39,7 @@
 >  **output:**   
 >  FILE: lagou_data.json
 
-#### 2.改善代理池的灵活性
+#### II.改善代理池的灵活性
 - 增加更多免费获取代理ip的网址。
 - 没有数据库连接，ip直接存到本地文件。
 - 没有数据库连接，从本地文件获取ip。
