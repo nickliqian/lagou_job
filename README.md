@@ -25,7 +25,7 @@
 ![image](https://github.com/nickliqian/lagou_job/blob/master/lagou_spider.png)
 
 ### 3.如何使用
-打开Crawl.py
+打开Crawl.py，自定义`city_list/job_type_list/threading_num`即可运行。
 
 ### 4.下一个版本
 
