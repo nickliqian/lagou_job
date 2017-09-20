@@ -26,7 +26,7 @@ class GetJobList(threading.Thread):
 			job_id_list = getjoblist(city, keyword)
 			time.sleep(2)
 			for job_id in job_id_list:
-				self.job_listQueue.put(job_id)
+				self.job_listQueue.put((job_id,keyword))
 	
 # 多线程请求单个职位页面
 class GetJobDetail(threading.Thread):
@@ -39,9 +39,9 @@ class GetJobDetail(threading.Thread):
 	def run(self):
 		while True:
 			try:
-				job_id = self.job_listQueue.get(timeout=60)
+				job_id,keyword = self.job_listQueue.get(timeout=60)
 				resposne = get_job_detail(job_id)
-				item = parse_html(resposne, job_id)
+				item = parse_html(resposne, job_id, keyword)
 				with self.lock:
 					data = json.dumps(item,ensure_ascii=False).encode('gbk','ignore')
 					data = str(data, encoding='gbk', errors='ignore')
@@ -54,8 +54,8 @@ class GetJobDetail(threading.Thread):
 def main():
 	# 加上一个log文件
 
-	city_list = ['深圳', '北京', '广州' ,'上海', '武汉', '杭州'，'成都']
-	job_type_list = ['python'，'java', 'php', 'go', 'Android', '数据挖掘', '数据分析', 'C', 'C++']
+	city_list = ['深圳', '北京', '广州' ,'上海', '武汉', '杭州', '成都']
+	job_type_list = ['python','java', 'php', 'go', 'Android', '数据挖掘', '数据分析', 'C', 'C++']
 	city_typeQueue = Queue()
 	job_listQueue = Queue()
 	lock = threading.Lock()
@@ -70,14 +70,14 @@ def main():
 
 	# 创建五个线程
 	jobList = []
-	for i in range(5):
+	for i in range(10):
 		t1 = GetJobList(city_typeQueue, job_listQueue)
 		t1.start()
 		jobList.append(t1)
 
 	# 创建五个线程
 	jobdetail = []
-	for i in range(5):
+	for i in range(10):
 		t2 = GetJobDetail(job_listQueue, lock, output)
 		t2.start()
 		jobList.append(t2)
@@ -93,7 +93,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-
-
-
-

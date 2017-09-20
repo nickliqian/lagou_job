@@ -100,7 +100,7 @@ def get_job_detail(job_id):
 	return response
 
 # 使用xpath解析单个页面
-def parse_html(response, job_id):
+def parse_html(response, job_id, keyword):
 	
 	if response == '':
 		return {'job_id':job_id}
@@ -114,6 +114,7 @@ def parse_html(response, job_id):
 
 	# 工作编号
 	item['job_id'] = job_id
+	item['keyword'] = keyword
 
 	# 发布时间
 	try:
