@@ -1,5 +1,5 @@
 ## Collec lagou.com data
-<br>
+
 ### 项目文件说明
 #### Crawl.py
 - 调度器，使用多线程分别执行请求和解析响应的任务，并存到本地或者写入数据库。
@@ -20,6 +20,9 @@
 - 调用getRandomUserAgent，返回一个随机的User-Agent。
 #### json_To_Csv_File.py
 - 一键将本项目中的json文件转为csv文件。
+
+### 代码实现流程
+![image](https://github.com/nickliqian/lagou_job/blob/master/lagou_spider.png)
 
 ### 如何使用
 打开Crawl.py
