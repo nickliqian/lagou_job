@@ -1,6 +1,30 @@
 ## Collec lagou.com data
 
-### 1.项目文件说明
+### 1.数据分析
+本项目采集以下7个城市，7种类型的职位数量及相关资料。
+（包括但不限于 工作地点/薪资/学历要求/经验要求/HR简历处理速度/HR活跃时间段/应聘者评论）
+```
+city_list = ['深圳', '北京', '广州' ,'上海', '武汉', '杭州', '成都']
+job_type_list = ['python','java', 'php', 'go', 'Android', 'C', 'C++']
+```
+基于这些数据，做了如下分析。
+#### 各编程语言薪资水平
+可以看到目前go语言给出的薪资的中位数最高。
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/编程语言薪资水平.png)
+#### HR活跃的时间段
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/HR活跃的时间段.png)
+#### HR简历处理速度
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/简历处理速度.png)
+#### 各语言职位数量
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/职位数量.png)
+#### 各城市需求量
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/各城市需求量.png)
+#### 职位要求经验
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/职位要求经验.png)
+#### 职位要求学历
+![image](https://github.com/nickliqian/lagou_job/blob/master/data%20analysis/职位要求学历.png)
+
+### 2.项目文件说明
 #### Crawl.py
 - 调度器，使用多线程分别执行请求和解析响应的任务，并存到本地或者写入数据库。
 - 需要提供目标关键词和城市。
@@ -21,13 +45,13 @@
 #### json_To_Csv_File.py
 - 一键将本项目中的json文件转为csv文件。
 
-### 2.代码实现流程
+### 3.代码实现流程
 ![image](https://github.com/nickliqian/lagou_job/blob/master/lagou_spider.png)
 
-### 3.如何使用
+### 4.如何使用
 打开Crawl.py，自定义`city_list/job_type_list/threading_num`即可运行。
 
-### 4.下一个版本
+### 5.下一个版本
 
 #### I.增加manage.py文件
 计划增加manage.py文件，并把项目修改为类似API的形式。只需输入关键词，城市列表和线程数量，即可输出一个包含这些城市的职位信息的json文件。
