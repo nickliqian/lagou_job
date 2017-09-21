@@ -55,7 +55,7 @@ def main():
 	# 加上一个log文件
 
 	city_list = ['深圳', '北京', '广州' ,'上海', '武汉', '杭州', '成都']
-	job_type_list = ['python','java', 'php', 'go', 'Android', '数据挖掘', '数据分析', 'C', 'C++']
+	job_type_list = ['python','java', 'php', 'go', 'Android', 'C', 'C++']
 	city_typeQueue = Queue()
 	job_listQueue = Queue()
 	lock = threading.Lock()

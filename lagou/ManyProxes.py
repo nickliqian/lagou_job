@@ -18,6 +18,7 @@ def printProxyNums(set_name):
 	client = redis.Redis(host='127.0.0.1', port=6379)
 	print(client.scard(set_name))
 
+
 def main():
 	printProxyNums('proxy_ip')
 
