@@ -1,4 +1,4 @@
-## Collec lagou.com data
+## Collect lagou.com data
 
 ### 1.数据分析
 本项目采集以下7个城市，7种类型的职位数量及相关资料。
